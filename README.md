@@ -47,3 +47,10 @@ npm init
 ### 生命周期
 
 说明：http://blog.hdongyu.com/2019/01/23/vue_lifeCycle/
+
+
+### 0210任务
+
+- node官网下载node并安装,node -v 校验安装是否成功
+- 按照vue-cli3.0说明，新建项目
+- 尝试{{}}绑定变量，尝试click和其他方法，熟悉声明周期前两个；

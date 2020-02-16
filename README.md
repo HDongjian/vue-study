@@ -175,5 +175,79 @@ v-show是为元素增加一个display: none;的行内css属性，但是v-if是�
 可以简写为:
 
 
+## 组件
+
+### 组件有两种写法
+
+1.直接声明
+
+```js
+Vue.component('blog-post3', {
+  props: ['post'],
+  template: `
+      <div class="blog-post3">
+        <h3>{{ post.title }}</h3>
+      </div>
+    `
+})
+```
+
+2. `.vue`文件都可以作为组件引入
 
 
+```js
+import HelloWord from './components/HelloWorld.vue'
+Vue.component('hello-world',HelloWord)
+```
+>基本上都是第二种，1.可以将复杂的文件分为多个；2.可以将同样功能的组件复用
+
+### 引入方式
+
+1. 全局引入
+
+这种方式无论在任何一个页面中(.vue文件中)都可以使用
+
+```js
+import HelloWord from './components/HelloWorld.vue'
+Vue.component('hello-world',HelloWord)
+```
+
+2. 局部引入
+
+```js
+import HelloWorld from '../components/HelloWorld'
+export default {
+  components:{
+    HelloWorld:HelloWorld
+  }
+}
+```
+
+### 组件通信
+
+#### 父到子
+
+```html
+<hello-world :data="childData"></hello-world>
+```
+
+```js
+props:['data']
+
+```
+
+#### 子到父
+
+父组件
+```js
+this.$on('getChild',(data)=>{
+  console.log(data)
+})
+```
+子组件
+```js
+this.$parent.$emit('getChild','我是从儿子过来的')
+```
+
+
+父组件为子组件绑定一个函数`@getChild`，相当于子组件注册$on事件

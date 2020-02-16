@@ -1,6 +1,10 @@
 <template>
   <!-- 只允许一个根dom -->
   <div id="app">
+    <router-link to="/base">Go to base</router-link></br>
+    <router-link to="/form">Go to form</router-link></br>
+    <router-link to="/components">Go to 组件</router-link></br>
+    <hr>
     <router-view></router-view>
   </div>
 </template>

@@ -251,3 +251,89 @@ this.$parent.$emit('getChild','我是从儿子过来的')
 
 
 父组件为子组件绑定一个函数`@getChild`，相当于子组件注册$on事件
+
+
+## UI框架--iview
+
+有一整套基本的UI样式和一些基础的JS相关功能
+
+
+iview官网：https://www.iviewui.com/
+
+
+```shell
+cnpm i iview --save
+cnpm i iview -S
+
+# 这种方式会将包安装在dependencies
+
+npm i less less-loader -D
+
+#会安装到devDependencies里面，这个就是仅仅在开发过程中需要的依赖包
+
+npm uninstall less
+
+# 卸载依赖
+
+cnpm uninstall less@2.7.3 -D
+
+# 安装指定版本依赖
+
+```
+
+```json
+"Print to console": {
+  "prefix": "vuec",
+  "body": [
+    "<template>",
+    "  <div>",
+    "    $0",
+    "  </div>",
+    "</template>",
+    "",
+    "<script>",
+    "export default {",
+    "",
+    "  data () {",
+    "    return {",
+    "    }",
+    "  },",
+    "",
+    "  created () {},",
+    "  mounted () {},",
+    "  methods: {}",
+    "}",
+    "</script>",
+    "",
+    "<style lang='less'>",
+    "",
+    "</style>",
+    ""
+  ],
+  "description": "Log output to console"
+}
+
+```
+
+
+## Less
+
+嵌套写法
+
+```less
+.login-container{
+  .login-card{
+    background: #000;
+  }
+}
+
+.login-container .login-card {
+    background: #000;
+}
+```
+
+## slot 插槽
+
+这个自己明后天去vue官网看一下
+
+ref：如果在组件上面设置获取的就是组件的vue实例对象，如果在dom元素上设置，获取的就是dom对象
